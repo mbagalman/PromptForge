@@ -6,6 +6,10 @@ The `version` field in each prompt's frontmatter is the source of truth for the 
 
 ## 2026-05-03
 
+- **Three research prompts** — structural rewrite to align with the 2026 system-prompt-guide 5-section template (Role / Context / How to handle requests / Constraints / When unsure). Methodology preserved verbatim across all three — Required Inputs, workflows, output formats (with their exact section orders), Limited Evidence Mode behavior, and Style rules are byte-stable. Titles canonicalized: dropped `# SYSTEM ROLE:` prefix. Each prompt's `When unsure` section consolidates the existing Limited Evidence Mode (which was already structured as a fallback) plus missing-input handling. (T10 step 1 of 2 for all three research prompts; methodology updates deferred per the same step-1 / step-2 split used elsewhere.)
+  - `research/content-digest.md` — 1.0.0 → 1.0.1 (patch)
+  - `research/fact-checker.md` — 1.0.0 → 1.0.1 (patch)
+  - `research/red-team-analyst.md` — 1.0.0 → 1.0.1 (patch)
 - **Five financial prompts** — structural rewrite to align with the 2026 system-prompt-guide 5-section template (Role / Context / How to handle requests / Constraints / When unsure). Methodology preserved verbatim across all five — input vectors, workflow steps, output structures (including the `Holistic Planner Handoff Packet` that links MPT Advisor → Holistic Planner), mathematical notation, and disclaimer text are all byte-stable. Titles canonicalized to drop historical brand suffixes (`QUANT-GEM v3.0`, `(GEM)`, embedded `(v1.0)` markers). Each prompt got a dedicated `When unsure` section consolidating existing fallback behaviors (data unavailable → N/A, missing inputs → request, etc.). Disclaimers preserved character-for-character. (T10 step 1 of 2 for all five financial prompts; methodology updates deferred per the same step-1 / step-2 split used for the Syntaxias.)
   - `financial/compounder-analyst.md` — 2.0.0 → 2.0.1 (patch)
   - `financial/graham-dodd-analyst.md` — 1.0.0 → 1.0.1 (patch)
