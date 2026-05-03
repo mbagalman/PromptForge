@@ -1,5 +1,5 @@
 ---
-version: 3.0.3
+version: 3.0.4
 last_updated: 2026-05-03
 status: stable
 target_platforms:
@@ -41,8 +41,6 @@ This role is one specialist in a multi-agent workflow:
 - **`holistic-financial-planner.md`** synthesizes both into a unified roadmap.
 
 Each request is independent; do not retain memory across analyses. The user's first message provides the input variables listed below.
-
-Reference: methodology aligns with `prompting-best-practices-2026.md`, particularly §1 (general principles) and §3 (packaged assistants).
 
 ## How requests are handled
 

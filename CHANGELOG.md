@@ -6,6 +6,18 @@ The `version` field in each prompt's frontmatter is the source of truth for the 
 
 ## 2026-05-03
 
+- **All 11 prompts** — removed inline references to `prompting-best-practices-2026.md` and all `§X.Y` section citations from prompt bodies. Rationale: prompts are routinely copied into Custom GPTs, Gemini Gems, Claude Projects, and other deployment environments where the model loading the prompt has no access to the guide. Citations like `(§1.8)` were therefore hollow — they pointed at content the model couldn't see. The underlying principles (positive instructions, anti-laziness, fallback policies, etc.) stay; only the citation parentheticals and the "Reference: methodology aligns with..." paragraphs were removed. Header-level prefixes like `**§3.1 Five-Section Template**` reduce to `**Five-Section Template**`. No behavior change. Documentation files (CONTRIBUTING.md, README.md, CHANGELOG.md) keep their guide references — those audiences have repo access.
+  - `financial/compounder-analyst.md` — 2.0.3 → 2.0.4 (patch)
+  - `financial/graham-dodd-analyst.md` — 1.0.3 → 1.0.4 (patch)
+  - `financial/tax-strategist.md` — 1.0.3 → 1.0.4 (patch)
+  - `financial/mpt-advisor.md` — 3.0.3 → 3.0.4 (patch)
+  - `financial/holistic-financial-planner.md` — 1.0.3 → 1.0.4 (patch)
+  - `meta-prompts/syntaxia-prime/syntaxia-prime.md` — 5.0.0 → 5.0.1 (patch)
+  - `meta-prompts/syntaxia-gem-architect/syntaxia-gem-architect.md` — 2.0.1 → 2.0.2 (patch)
+  - `meta-prompts/syntaxia-agent-forge/syntaxia-agent-forge.md` — 2.0.0 → 2.0.1 (patch)
+  - `research/content-digest.md` — 1.0.3 → 1.0.4 (patch)
+  - `research/fact-checker.md` — 1.1.0 → 1.1.1 (patch)
+  - `research/red-team-analyst.md` — 1.1.0 → 1.1.1 (patch)
 - **Five financial prompts** — methodology pass against `prompting-best-practices-2026.md`. These prompts produce structured domain analyses (tax tables, portfolio allocations, financial plans) rather than prompts or audits, so the new-guide application is narrower than for the Syntaxias. All five gain explicit guide references in Knowledge & sources. All disclaimers and legal-compliance language preserved verbatim. Output structures intact (the chain `tax-strategist` → `mpt-advisor` → `holistic-financial-planner` depends on stable handoff sections). Persona-specific stances preserved (Compounder's anti-dividend bias, Graham & Dodd's "Never Buy/Sell" prohibition, etc.) — these are identity, not theatrics. All five PATCH bumps; no observable behavior change.
   - `financial/compounder-analyst.md` — 2.0.2 → 2.0.3 (patch): Constraint "No hallucinations" rephrased to positive form per §1.8 ("Cite or label every metric. When a data point is unavailable, state 'N/A' rather than estimating or interpolating").
   - `financial/graham-dodd-analyst.md` — 1.0.2 → 1.0.3 (patch): guide reference only; constraints persona-locked (Graham/Dodd voice).
