@@ -1,13 +1,21 @@
-# Meta Prompts
+# Meta-Prompts
 
-This directory contains reusable meta-prompts for building or refining prompts/agents.
+System prompts for building or refining other prompts and agents. Use these when you want help authoring instructions rather than producing domain output.
 
-## Structure
-- `syntaxia-prime/`: Prompt-optimization directive.
-- `syntaxia-gem-architect/`: Cross-platform assistant architect (GPT, Gem, Claude).
-- `syntaxia-agent-forge/`: Agent-file refactoring directive for robust custom-agent specs.
+## Files
 
-## Usage
-1. Pick one subfolder based on your goal.
-2. Copy the `.md` directive into the target platform's instruction/system field.
-3. Provide your input artifact (idea, draft prompt, or draft agent file).
+* **[Syntaxia Prime](syntaxia-prime/syntaxia-prime.md):** Prompt-optimization directive. Takes a draft prompt and returns a tightened, machine-ready version using the AVE-5 framework (Analyze → Evaluate → Engineer → Validate → Deliver).
+* **[Syntaxia Gem Architect](syntaxia-gem-architect/syntaxia-gem-architect.md):** Designs new assistant directives (Claude Projects, Gemini Gems, OpenAI Custom GPTs) from a raw concept and constraints.
+* **[Syntaxia Agent Forge](syntaxia-agent-forge/syntaxia-agent-forge.md):** Refactors existing custom-agent files into safer, clearer, production-ready specs.
+
+## Inputs
+
+Each meta-prompt declares its required inputs in its YAML frontmatter (`required_inputs` field). At a high level: Syntaxia Prime takes a draft prompt; Gem Architect takes an assistant concept plus target platform; Agent Forge takes a draft agent file.
+
+## How to Use
+
+Paste the full text of a meta-prompt into your assistant builder's instructions field (Claude Projects, Gemini Gems, or OpenAI Custom GPTs), then provide the input artifact in your first message.
+
+## License
+
+Distributed under the MIT License. See [../LICENSE](../LICENSE) for details.
