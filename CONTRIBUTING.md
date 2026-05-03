@@ -134,3 +134,32 @@ Example:
 ```
 
 When a single change touches many prompts (e.g., a repo-wide metadata migration), one consolidated entry with an "Affected" sub-bullet is fine — see the seed entry in `CHANGELOG.md` for the pattern.
+
+## Cross-References Between Prompts
+
+When a prompt references another prompt by name (e.g., `holistic-financial-planner.md` references `tax-strategist.md` in its Context section), use the **bare filename** as the reference. Do not use stable IDs, slugs, or alias schemes.
+
+This is a deliberate trade for simplicity: bare-filename references are immediately legible to anyone reading the prompt, but they do break when files are renamed.
+
+### Renaming a Prompt
+
+If you rename a prompt file, you are responsible for updating every reference to it. Before committing the rename, run:
+
+```sh
+git grep -n 'OLD_NAME\.md'
+```
+
+and update each hit. References can appear in:
+
+- **Other prompt files** — most often in `## Context`, `## When unsure`, or in `required_inputs` frontmatter that mentions another prompt's output as input.
+- **Subfolder READMEs** — file lists, Workflow sections.
+- **Top-level README** — Featured and Contents sections.
+
+References do **not** need to be updated in:
+
+- **`CHANGELOG.md`** — historical entries reference filenames at time of commit and are intentionally frozen.
+- **Prior commit messages, closed pull requests, prior tickets** — same reasoning.
+
+### Why Bare Filenames?
+
+The repo is small enough that grep-and-replace is reliable, and bare filenames have a real readability benefit: a reader sees `tax-strategist.md` and can immediately find the file. If the repo grows substantially or starts being consumed by tooling that needs stable identifiers, this policy can revisit.
