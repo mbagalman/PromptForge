@@ -11,9 +11,7 @@ This folder contains system prompts for AI-assisted financial planning. Three ag
 3. **USE AT YOUR OWN RISK:** I (the creator of these prompts) am **not responsible** for any financial losses, tax penalties, or legal issues arising from the use or misuse of these templates. 
 4. **CONSULT A PROFESSIONAL:** Financial decisions involve significant risk. Always validate any AI-generated analysis with a qualified, human, fiduciary financial advisor and a Certified Public Accountant (CPA) before taking action.
 
----
-
-## The Agent Suite
+## Files
 
 The five agents fall into two groups.
 
@@ -30,20 +28,28 @@ These three agents are designed to run in sequence and produce a complete plan: 
 If you'd rather fill your equity allocation with individual companies than a broad index fund, these two agents act as filters on candidate tickers. They're standalone — use either, both, or neither, and they don't depend on the core chain.
 
 * **[Compounder Analyst](compounder-analyst.md):** Focuses on high-ROIC "quality" companies with a skepticism toward dividends.
-* **[Graham & Dodd Analyst](graham-dodd-analyst.md):** A classic value investing filter based on the "Intelligent Investor" framework.
+* **[Graham & Dodd Analyst](graham-dodd-analyst.md):** A classic value investing filter based on the *Intelligent Investor* framework.
 
-## Recommended Workflow
+## Inputs
+
+Each prompt declares its required inputs in its YAML frontmatter (`required_inputs` field). At a high level, the core chain expects your tax profile, portfolio state, and household-level goals; the stock-picking helpers expect a ticker symbol or company name. See each prompt file for specifics.
+
+## How to Use
+
+Paste the full text of a prompt into your assistant builder's instructions field (Claude Projects, Gemini Gems, or OpenAI Custom GPTs), then provide the required inputs in your first message. Validate every output against a qualified human advisor before acting.
+
+## Workflow
 
 **Core plan (sequence):**
+
 1. Run [Tax Strategist](tax-strategist.md) on your tax situation.
 2. Run [Strategic Investment Advisor](mpt-advisor.md) on your portfolio.
 3. Pass both outputs to [Holistic Financial Planner](holistic-financial-planner.md) for a unified, prioritized plan.
 
 **Optional stock selection:**
+
 - For any equity allocation you'd like to fill with individual stocks rather than an index fund, run candidate tickers through [Compounder Analyst](compounder-analyst.md) and/or [Graham & Dodd Analyst](graham-dodd-analyst.md).
 
-## How to Use
-These files are intended to be pasted into the "System Instructions" or "Custom Instructions" field of LLMs like Google Gemini (Gems), ChatGPT (GPTs), or Claude (Projects).
+## License & Disclaimer
 
-## License
-Distributed under the MIT License. See [../LICENSE](../LICENSE) for details.
+Distributed under the MIT License. See [../LICENSE](../LICENSE) for details. The full disclaimer is at the top of this file — read it before using any of these prompts.
