@@ -1,10 +1,10 @@
 # LLM Prompt Collections
 
-Two main resources: a practical 2026 guide to writing your own system-level prompts, and a curated set of ready-to-use system prompts for financial planning, research, and prompt engineering.
+Two main resources: a comprehensive 2026 guide to prompting frontier AI systems (chat, packaged assistants, and autonomous agents), and a curated set of ready-to-use system prompts for financial planning, research, and prompt engineering.
 
-## Featured: Writing System-Level Prompts in 2026
+## Featured: Prompting Best Practices (2026)
 
-[guides/system-prompt-guide-2026.md](guides/system-prompt-guide-2026.md) is a hands-on guide for writing the persistent instruction prompt that defines a custom assistant — whether that's a `CLAUDE.md` file, a Gemini Gem's instructions field, or an OpenAI Custom GPT's "Instructions" box. It synthesizes 2026 guidance from Anthropic, OpenAI, Google, and Microsoft into a single workflow, with platform-specific notes where they matter.
+[guides/prompting-best-practices-2026.md](guides/prompting-best-practices-2026.md) is a comprehensive 2026 guide to prompting frontier AI systems across three working contexts — chat sessions, packaged assistants (Gemini Gems, OpenAI Custom GPTs, Claude Projects), and autonomous agents (`AGENTS.md`, `CLAUDE.md`, `SKILL.md`). It synthesizes peer-reviewed 2026 research and primary documentation from Anthropic, OpenAI, Google, and Microsoft, with platform-specific notes and explicit flags for open questions and weak evidence.
 
 If you're building your own assistants more than borrowing the prompts in this repo, start there.
 
@@ -18,7 +18,7 @@ The prompts here aren't generic chatbot personalities. Three principles run thro
 
 ## Contents
 
-- [The 2026 system-prompt guide](guides/system-prompt-guide-2026.md) (`guides/`)
+- [Prompting Best Practices (2026)](guides/prompting-best-practices-2026.md) (`guides/`)
 - [Financial prompts](financial/README.md) — tax, portfolio allocation, holistic planning, plus optional stock-picking helpers (`financial/`)
 - [Meta-prompts](meta-prompts/README.md) — prompt-engineering directives, including Syntaxia (`meta-prompts/`)
 - [Research prompts](research/README.md) — synthesis, fact-checking, adversarial analysis (`research/`)

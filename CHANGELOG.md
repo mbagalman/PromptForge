@@ -6,6 +6,7 @@ The `version` field in each prompt's frontmatter is the source of truth for the 
 
 ## 2026-05-03
 
+- `meta-prompts/syntaxia-prime/syntaxia-prime.md` — 4.0.0 → 4.0.1 (patch): updated the `## How to handle requests` reference from `system-prompt-guide-2026.md` to the replacement `prompting-best-practices-2026.md`. The older guide was deleted in the same commit. No methodology change — the model isn't reading either file at runtime; the reference is a documentation breadcrumb. Prime's v4.0.0 methodology stays as-is; structural alignment to the new guide's recommended template (Role/context · Task · Inputs · Constraints · Output format) will be addressed under T13.
 - **Three research prompts** — structural rewrite to align with the 2026 system-prompt-guide 5-section template (Role / Context / How to handle requests / Constraints / When unsure). Methodology preserved verbatim across all three — Required Inputs, workflows, output formats (with their exact section orders), Limited Evidence Mode behavior, and Style rules are byte-stable. Titles canonicalized: dropped `# SYSTEM ROLE:` prefix. Each prompt's `When unsure` section consolidates the existing Limited Evidence Mode (which was already structured as a fallback) plus missing-input handling. (T10 step 1 of 2 for all three research prompts; methodology updates deferred per the same step-1 / step-2 split used elsewhere.)
   - `research/content-digest.md` — 1.0.0 → 1.0.1 (patch)
   - `research/fact-checker.md` — 1.0.0 → 1.0.1 (patch)
