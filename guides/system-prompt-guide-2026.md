@@ -2,6 +2,8 @@
 
 ## A practical guide for `CLAUDE.md`, Gemini Gems, and OpenAI Custom GPTs
 
+*Part of the [LLM Prompt Collections](../README.md) repository.*
+
 This guide synthesizes 2026 guidance from Anthropic, OpenAI, Google, and Microsoft, plus 2026 peer-reviewed work, into one focused workflow for writing the *persistent instruction prompt* that defines a custom assistant — whether that's a `CLAUDE.md` project file, a Gemini Gem's instructions field, or an OpenAI Custom GPT's "Instructions" box.
 
 These three artifacts serve the same function: a system-level specification that ships with every conversation and shapes how the model behaves before the user types anything. The principles below apply to all three. Platform-specific notes are called out where they matter.

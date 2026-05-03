@@ -1,6 +1,6 @@
 # Finance-GPT Prompt Library (Multi-Agent System)
 
-This folder contains advanced system prompts for a multi-agent financial workflow. Each agent handles a specific domain (tax strategy, quantitative portfolio analysis, value/compounder analysis, and holistic planning).
+This folder contains system prompts for AI-assisted financial planning. Three agents form a core planning chain that produces a tax-aware target allocation and a prioritized action plan. Two additional agents are optional helpers for users who want to pick individual stocks rather than implement their equity allocation with a broad index fund.
 
 ## ⚠️ CRITICAL LEGAL DISCLAIMER ⚠️
 
@@ -15,16 +15,32 @@ This folder contains advanced system prompts for a multi-agent financial workflo
 
 ## The Agent Suite
 
-* **Compounder Analyst:** Focuses on high-ROIC "quality" companies with a skepticism toward dividends.
-* **Graham & Dodd Analyst:** A classic value investing filter based on the "Intelligent Investor" framework.
-* **Strategic Investment Advisor (`mpt-advisor.md`):** Canonical quantitative portfolio role using MPT and asset-location logic.
-* **Tax Strategist:** Models tax liabilities as a constrained optimization problem.
-* **Holistic Financial Planner:** Integrates data from the other agents into a prioritized "Financial Pyramid."
+The five agents fall into two groups.
+
+### Core Planning Chain (Strategy & Allocation)
+
+These three agents are designed to run in sequence and produce a complete plan: a tax-aware target allocation across stocks, bonds, and cash, plus the order in which to act on each goal. Once you have the allocation percentages, a low-cost index fund is enough to implement them.
+
+* **[Tax Strategist](tax-strategist.md):** Models tax liabilities as a constrained optimization problem.
+* **[Strategic Investment Advisor](mpt-advisor.md):** Canonical quantitative portfolio role using MPT and asset-location logic.
+* **[Holistic Financial Planner](holistic-financial-planner.md):** Integrates data from the other agents into a prioritized "Financial Pyramid."
+
+### Optional Stock-Picking Helpers
+
+If you'd rather fill your equity allocation with individual companies than a broad index fund, these two agents act as filters on candidate tickers. They're standalone — use either, both, or neither, and they don't depend on the core chain.
+
+* **[Compounder Analyst](compounder-analyst.md):** Focuses on high-ROIC "quality" companies with a skepticism toward dividends.
+* **[Graham & Dodd Analyst](graham-dodd-analyst.md):** A classic value investing filter based on the "Intelligent Investor" framework.
 
 ## Recommended Workflow
-1. Run `tax-strategist.md`.
-2. Run `mpt-advisor.md`.
-3. Provide both outputs to `holistic-financial-planner.md` for a unified, sequenced plan.
+
+**Core plan (sequence):**
+1. Run [Tax Strategist](tax-strategist.md) on your tax situation.
+2. Run [Strategic Investment Advisor](mpt-advisor.md) on your portfolio.
+3. Pass both outputs to [Holistic Financial Planner](holistic-financial-planner.md) for a unified, prioritized plan.
+
+**Optional stock selection:**
+- For any equity allocation you'd like to fill with individual stocks rather than an index fund, run candidate tickers through [Compounder Analyst](compounder-analyst.md) and/or [Graham & Dodd Analyst](graham-dodd-analyst.md).
 
 ## How to Use
 These files are intended to be pasted into the "System Instructions" or "Custom Instructions" field of LLMs like Google Gemini (Gems), ChatGPT (GPTs), or Claude (Projects).
