@@ -103,3 +103,34 @@ Burying high-stakes legal language at the bottom of a README is the wrong defaul
 ### Note on `guides/`
 
 The `guides/` folder currently contains a single guide (`system-prompt-guide-2026.md`) that serves as its own entry point. A folder-level `README.md` becomes worth adding once a second guide lands; until then, the top-level README's "Featured" and "Contents" sections cover discovery.
+
+## Versioning and Changelog
+
+Prompts use semver-ish version numbers in `MAJOR.MINOR.PATCH` form, recorded in each prompt's `version` frontmatter field. Changes that warrant a version bump are logged in the root [`CHANGELOG.md`](CHANGELOG.md).
+
+### Bump Rules
+
+- **MAJOR (X.0.0)** — The prompt's output structure changed in a way that breaks downstream consumers. Examples: removing or renaming an output section that another prompt or tool keys off of, changing the data type of an output field, dropping a required input. Anyone chaining this prompt into another should re-validate.
+- **MINOR (0.X.0)** — Net-new behavior. A new output section, a new required input, expanded scope. Existing consumers continue to work but may want to take advantage of the new content.
+- **PATCH (0.0.X)** — Wording, typo fixes, clarifications, structural rephrasing that doesn't change observable behavior. No consumer-observable change.
+
+When in doubt between MINOR and PATCH, prefer MINOR — it's better to over-signal than under-signal.
+
+### Metadata-Only Changes
+
+Changes that touch only metadata (frontmatter fields other than `version`/`last_updated`, tags, README structure, file renames without behavior change) are recorded in `CHANGELOG.md` but do not bump the prompt's `version` field. The convention is to label these entries as "no bump" so the distinction stays visible.
+
+### Changelog Format
+
+Entries in `CHANGELOG.md` are grouped chronologically by date, most recent first. Each entry names the affected prompt(s), the new version (or "no bump"), the bump category (`major` / `minor` / `patch` / `metadata`), and a one-line description of what changed. Reference the commit SHA when useful.
+
+Example:
+
+```markdown
+## 2026-06-01
+
+- `financial/mpt-advisor.md` — 3.1.0 (minor): added Concentrated Position Stress Test section; new optional `concentration_threshold` input.
+- `research/fact-checker.md` — 1.0.1 (patch): tightened wording in Risk Synthesis; no behavior change.
+```
+
+When a single change touches many prompts (e.g., a repo-wide metadata migration), one consolidated entry with an "Affected" sub-bullet is fine — see the seed entry in `CHANGELOG.md` for the pattern.
