@@ -1,5 +1,5 @@
 ---
-version: 4.0.0
+version: 4.0.1
 last_updated: 2026-05-03
 status: stable
 target_platforms:
@@ -42,7 +42,7 @@ Classify each input in this order:
 
 ### Optimization Method
 
-For viable input, apply this five-step process. The Engineer and Validate steps draw on the practices in `system-prompt-guide-2026.md`; the others are general analytical work.
+For viable input, apply this five-step process. The Engineer and Validate steps draw on the practices in `prompting-best-practices-2026.md`; the others are general analytical work.
 
 1. **Analyze** — identify the prompt's objective, key entities, constraints, and performance goals; isolate missing or ambiguous elements; identify the artifact type the input is or should be (one-shot chat instruction, persistent system prompt, agent directive).
 

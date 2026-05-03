@@ -500,3 +500,7 @@ This guide synthesizes the following sources, organized by tier:
 ---
 
 *Last updated: May 2026. Frontier AI capabilities and platform features change frequently; specific product features and pricing should be verified against current vendor documentation.*
+
+---
+
+*Compiled and maintained by [Michael Bagalman](https://michaelbagalman.com/). For the philosophy behind this work, see [michaelbagalman.com/philosophy.html](https://michaelbagalman.com/philosophy.html).*

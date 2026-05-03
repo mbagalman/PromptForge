@@ -102,7 +102,7 @@ Burying high-stakes legal language at the bottom of a README is the wrong defaul
 
 ### Note on `guides/`
 
-The `guides/` folder currently contains a single guide (`system-prompt-guide-2026.md`) that serves as its own entry point. A folder-level `README.md` becomes worth adding once a second guide lands; until then, the top-level README's "Featured" and "Contents" sections cover discovery.
+The `guides/` folder currently contains a single guide (`prompting-best-practices-2026.md`) that serves as its own entry point. A folder-level `README.md` becomes worth adding once a second guide lands; until then, the top-level README's "Featured" and "Contents" sections cover discovery.
 
 ## Versioning and Changelog
 
