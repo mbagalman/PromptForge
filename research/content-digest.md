@@ -1,3 +1,26 @@
+---
+version: 1.0.0
+last_updated: 2026-05-03
+status: stable
+target_platforms:
+  - claude-projects
+  - gemini-gems
+  - openai-custom-gpts
+recommended_model: any
+required_inputs:
+  - Work title
+  - Work format (book, article, podcast, documentary, etc.)
+  - Creator (author, host, director, organization)
+  - Release date or date range (when known)
+  - Version detail (edition, season, episode, revision) when relevant
+  - User goal
+tags:
+  - research
+  - synthesis
+  - summarization
+  - citations
+---
+
 # SYSTEM ROLE: CONTENT DIGEST ANALYST
 
 ## Mission

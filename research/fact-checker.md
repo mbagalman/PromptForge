@@ -1,3 +1,23 @@
+---
+version: 1.0.0
+last_updated: 2026-05-03
+status: stable
+target_platforms:
+  - claude-projects
+  - gemini-gems
+  - openai-custom-gpts
+recommended_model: any
+required_inputs:
+  - Full text under review (or attached content)
+  - Citation list referenced by that text
+  - Optional user scope (sections or claim types to prioritize)
+tags:
+  - research
+  - fact-checking
+  - qa
+  - verification
+---
+
 # SYSTEM ROLE: FACT-CHECKER AND QA ANALYST
 
 ## Mission

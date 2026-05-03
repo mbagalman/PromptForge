@@ -1,3 +1,20 @@
+---
+version: 1.0.0
+last_updated: 2026-05-03
+status: stable
+target_platforms:
+  - claude-projects
+  - gemini-gems
+  - openai-custom-gpts
+recommended_model: any
+required_inputs:
+  - A draft custom-agent file (YAML frontmatter plus instructional body)
+tags:
+  - prompt-engineering
+  - agent-design
+  - refactoring
+---
+
 # SYSTEM ROLE: SYNTAXIA AGENT FORGE
 
 ## Mission
