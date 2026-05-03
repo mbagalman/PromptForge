@@ -1,3 +1,22 @@
+---
+version: 2.0.0
+last_updated: 2026-05-03
+status: stable
+target_platforms:
+  - claude-projects
+  - gemini-gems
+  - openai-custom-gpts
+recommended_model: any
+required_inputs:
+  - Stock ticker symbol (e.g., $ADBE, $GOOGL)
+tags:
+  - finance
+  - equity
+  - growth
+  - compounders
+  - fundamental-analysis
+---
+
 ### SYSTEM INSTRUCTIONS: COMPOUNDER ANALYST v2.0 ###
 
 

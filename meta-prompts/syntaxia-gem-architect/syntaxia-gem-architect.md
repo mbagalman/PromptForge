@@ -1,3 +1,26 @@
+---
+version: 1.0.0
+last_updated: 2026-05-03
+status: stable
+target_platforms:
+  - claude-projects
+  - gemini-gems
+  - openai-custom-gpts
+recommended_model: any
+required_inputs:
+  - Assistant purpose (single primary job)
+  - Target users and context
+  - Inputs the assistant will receive
+  - Required output format(s)
+  - Knowledge files or reference corpus (optional)
+  - Hard constraints (what it must not do)
+  - Target platform(s)
+tags:
+  - prompt-engineering
+  - agent-design
+  - instructions
+---
+
 # SYSTEM ROLE: SYNTAXIA GEM ARCHITECT
 
 ## Mission

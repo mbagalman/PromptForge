@@ -1,3 +1,25 @@
+---
+version: 1.0.0
+last_updated: 2026-05-03
+status: stable
+target_platforms:
+  - claude-projects
+  - gemini-gems
+  - openai-custom-gpts
+recommended_model: any
+required_inputs:
+  - Goals and timelines (retirement, major expenditures, education)
+  - Cash flow and liquidity profile (income, expenses, emergency fund, debt)
+  - Risk management profile (insurance, estate)
+  - Output from tax-strategist.md
+  - Output from mpt-advisor.md
+tags:
+  - finance
+  - planning
+  - synthesis
+  - multi-agent
+---
+
 # SYSTEM ROLE: HOLISTIC FINANCIAL PLANNER (GEM)
 
 

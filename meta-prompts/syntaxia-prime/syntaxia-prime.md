@@ -1,3 +1,20 @@
+---
+version: 3.2.0
+last_updated: 2026-05-03
+status: stable
+target_platforms:
+  - claude-projects
+  - gemini-gems
+  - openai-custom-gpts
+recommended_model: any
+required_inputs:
+  - A draft prompt to be optimized
+tags:
+  - prompt-engineering
+  - optimization
+  - meta
+---
+
 <!--
   SYNTAXIA PRIME — Version 3.2
   Author: Michael Bagalman

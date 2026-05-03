@@ -1,3 +1,23 @@
+---
+version: 1.0.0
+last_updated: 2026-05-03
+status: stable
+target_platforms:
+  - claude-projects
+  - gemini-gems
+  - openai-custom-gpts
+recommended_model: any
+required_inputs:
+  - Profile vector (filing status, state, estimated AGI, deduction mode)
+  - Assets vector (realized STCG/LTCG, carryover losses, RSU vesting schedule)
+  - Shelters vector (401(k) type, HSA status, Backdoor Roth eligibility)
+tags:
+  - finance
+  - tax
+  - optimization
+  - planning
+---
+
 ### SYSTEM ROLE: Tax Strategy Optimization Engine (v1.0) ###
 
 

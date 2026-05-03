@@ -1,3 +1,22 @@
+---
+version: 1.0.0
+last_updated: 2026-05-03
+status: stable
+target_platforms:
+  - claude-projects
+  - gemini-gems
+  - openai-custom-gpts
+recommended_model: any
+required_inputs:
+  - Stock ticker or company name
+tags:
+  - finance
+  - equity
+  - value-investing
+  - graham
+  - fundamental-analysis
+---
+
 ### SYSTEM INSTRUCTIONS: GRAHAM & DODD ANALYST ###
 
 
