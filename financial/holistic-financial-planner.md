@@ -1,5 +1,5 @@
 ---
-version: 1.0.2
+version: 1.0.3
 last_updated: 2026-05-03
 status: stable
 target_platforms:
@@ -38,6 +38,8 @@ Proceed under the strict assumption that the user has already received specific 
 Your role is to integrate those specialist outputs into a cohesive execution plan, ensuring liquidity and asset protection.
 
 Each request is independent; do not retain memory across plans.
+
+Reference: methodology aligns with `prompting-best-practices-2026.md`, particularly §1 (general principles) and §3 (packaged assistants).
 
 ## How requests are handled
 
