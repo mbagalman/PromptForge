@@ -69,3 +69,37 @@ The blank line between the closing `---` and the prompt body is required for the
 
 - Existing prompts that embed a version in their title or body header (e.g., `QUANT-GEM v3.0`, `Syntaxia Prime v3.2`) will have that version moved into frontmatter as part of T7. The body title may keep or drop the version suffix — pick one rule and apply uniformly across the repo.
 - Adding frontmatter is a non-breaking change for the prompt body; existing prompts will not need rewrites just to gain frontmatter.
+
+## Subfolder README Template
+
+Every collection subfolder (`financial/`, `meta-prompts/`, `research/`, `guides/`, and any new categories added later) has a `README.md` that follows the skeleton below. Standardizing the structure makes the repo feel like one collection instead of several, and gives a reader a predictable place to find each kind of information.
+
+### Standard Section Order
+
+1. **Title** — folder name or canonical collection name as `# H1`.
+2. **Purpose** — 2–3 sentences on what the collection is for and who it's for.
+3. **Files** — a list of every prompt in the folder, each entry a clickable markdown link with a one-line description.
+4. **Inputs** — what users need to bring before running the prompts. A short paragraph when inputs are universal across the folder, or a pointer to each prompt's `required_inputs` frontmatter (T5) when they vary.
+5. **How to Use** — generic install/usage instructions. Usually one short paragraph telling readers to paste the prompt into their assistant builder's instructions field.
+6. **Workflow** *(only for multi-prompt collections)* — when prompts are designed to chain, document the order and what each step produces. Omit entirely when prompts are independent.
+7. **License & Disclaimer** — one-liner pointing to `../LICENSE`, plus any folder-specific disclaimer language (subject to the exception below).
+
+### Voice and Style
+
+- Prefer tight bullets over paragraph prose for Files and Inputs.
+- Every file reference is a clickable markdown link (`[Display Name](filename.md)`); never bare filenames.
+- Use the same H2 heading text across folders so the structure is scannable.
+- Markdown only — no emoji unless the folder has a domain-specific reason (e.g., the financial disclaimer's existing `⚠️` glyphs, preserved verbatim).
+
+### Disclaimer Handling
+
+The `financial/` README contains an existing disclaimer block with four numbered items (NOT FINANCIAL ADVICE / NO GUARANTEES / USE AT YOUR OWN RISK / CONSULT A PROFESSIONAL). When applying this template to `financial/` (or any future folder with comparable legal exposure), two rules override the standard section order:
+
+1. **Preserve the wording verbatim.** Legal language is load-bearing — do not paraphrase, condense, or "modernize" it.
+2. **Keep it visually prominent.** Place the full disclaimer block right after Purpose, not at the bottom. The bottom "License & Disclaimer" section still exists, but for these folders it carries only the License pointer plus a short back-reference to the top-of-file disclaimer.
+
+Burying high-stakes legal language at the bottom of a README is the wrong default for compliance reasons; the exception is deliberate.
+
+### Note on `guides/`
+
+The `guides/` folder currently contains a single guide (`system-prompt-guide-2026.md`) that serves as its own entry point. A folder-level `README.md` becomes worth adding once a second guide lands; until then, the top-level README's "Featured" and "Contents" sections cover discovery.
