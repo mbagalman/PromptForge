@@ -1,4 +1,4 @@
-# LLM Prompt Collections
+# PromptForge: LLM Prompt Collection
 
 Two main resources: a comprehensive 2026 guide to prompting frontier AI systems (chat, packaged assistants, and autonomous agents), and a curated set of ready-to-use system prompts for financial planning, research, and prompt engineering.
 
