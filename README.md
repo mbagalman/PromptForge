@@ -8,6 +8,10 @@ Two main resources: a comprehensive 2026 guide to prompting frontier AI systems 
 
 If you're building your own assistants more than borrowing the prompts in this repo, start there.
 
+## 📋 Prompt Index
+
+**[PROMPTS.md](PROMPTS.md)** — Complete table of all prompts with descriptions, key features, direct file links, and usage notes.
+
 ## The Prompt Collection
 
 The prompts here aren't generic chatbot personalities. Three principles run through the collection:
@@ -22,11 +26,12 @@ The prompts here aren't generic chatbot personalities. Three principles run thro
 - [Financial prompts](financial/README.md) — tax, portfolio allocation, holistic planning, plus optional stock-picking helpers (`financial/`)
 - [Meta-prompts](meta-prompts/README.md) — prompt-engineering directives, including Syntaxia (`meta-prompts/`)
 - [Research prompts](research/README.md) — synthesis, fact-checking, adversarial analysis (`research/`)
+- **[Full Prompt Index → PROMPTS.md](PROMPTS.md)**
 
 ## How to Use
 
-1. Pick a prompt from the [Contents](#contents) above.
-2. Paste its full text into the model's system or custom-instructions field.
+1. Browse the full collection in **[PROMPTS.md](PROMPTS.md)**.
+2. Pick a prompt and paste its full text into the model's system or custom-instructions field.
 3. Provide your task-specific input in the user message.
 4. Validate the model's output before acting on it.
 
