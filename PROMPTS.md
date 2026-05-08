@@ -7,6 +7,7 @@ This is a central, up-to-date index of every prompt and guide in the collection.
 - [Prompting Best Practices Guide](#prompting-best-practices-2026)
 - [Financial Prompts](#financial-prompts)
 - [Research Prompts](#research-prompts)
+- [Legal Prompts](#legal-prompts)
 - [Meta-Prompts](#meta-prompts)
 
 ---
@@ -34,6 +35,21 @@ This is a central, up-to-date index of every prompt and guide in the collection.
 | Content Digest | [research/content-digest.md](research/content-digest.md) | Structured summarization and synthesis of long-form content | Key claims, evidence, counterpoints tables | Literature review, article digestion |
 | Fact-Checker | [research/fact-checker.md](research/fact-checker.md) | Rigorous source verification and claim validation | Verifiability scoring, primary source preference | Truth-seeking research |
 | Red-Team Analyst | [research/red-team-analyst.md](research/red-team-analyst.md) | Adversarial critique and risk identification | Assumption stress-testing, failure modes | Decision robustness |
+
+## Legal Prompts
+
+| Prompt Name | File | Description | Key Features | Best For |
+|-------------|------|-------------|--------------|----------|
+| Legalese Translator | [legal/legalese-translator.md](legal/legalese-translator.md) | Plain-English translation of legal contracts for non-lawyers | Strict output contract, structured sections, neutral tone | Understanding a contract before signing |
+| ToS Reviewer | [legal/document-reviewers/tos-reviewer-prompt.md](legal/document-reviewers/tos-reviewer-prompt.md) | Severity-tiered risk review of Terms of Service | Three-tier red flag system, paired reference guide, action-oriented findings | Auditing a ToS before clicking "Agree" |
+| Privacy Policy Reviewer | [legal/document-reviewers/privacy-policy-reviewer-prompt.md](legal/document-reviewers/privacy-policy-reviewer-prompt.md) | Severity-tiered review of privacy policies and data practices | Five-data-question framework, paired reference guide, real-world cross-checks | Auditing data practices before sign-up |
+
+The two reviewer prompts pair with companion reference documents in [legal/document-reviewers/](legal/document-reviewers/) that supply the framework they apply:
+
+- [legal/document-reviewers/privacy-policy-consumer-guide.md](legal/document-reviewers/privacy-policy-consumer-guide.md) — used by the Privacy Policy Reviewer
+- [legal/document-reviewers/tos-consumer-guide.md](legal/document-reviewers/tos-consumer-guide.md) — used by the ToS Reviewer
+
+Load the relevant guide as a knowledge file (Custom GPT, Claude Project) or paste it alongside the system prompt. See [legal/README.md](legal/README.md) for setup details.
 
 ## Meta-Prompts (Prompt Engineering)
 
