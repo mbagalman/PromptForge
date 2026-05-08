@@ -35,7 +35,7 @@ Every time you click "I Agree," you sign a legally binding contract. Most people
 
 You don't need a law degree to read a ToS well. You need a method: knowing which sections carry the most weight, which words to search for, and which red flags justify slowing down or walking away. This guide gives you that method.
 
-A ToS review is not really about spotting legalese. It's about identifying where the service is shifting **risk, cost, control, and future flexibility** onto you. The five high-leverage questions are always the same:
+A ToS review is not really about spotting legalese. It's about identifying where the service is shifting **risk, cost, control, and future flexibility** onto you. The five risk questions are always the same:
 
 1. What can the provider charge you, now and later?
 2. What can they do with your data?

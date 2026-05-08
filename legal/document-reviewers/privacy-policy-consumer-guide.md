@@ -35,7 +35,7 @@ Every service that collects personal information is required to publish some kin
 
 You don't need to read every privacy policy you encounter. But for any service that holds meaningful information about you, knowing how to read one is among the most useful skills in modern digital life.
 
-A privacy policy review is fundamentally about answering five questions:
+A privacy policy review is fundamentally about answering five data questions:
 
 1. **What data does this service collect?**
 2. **What does it do with that data?**
