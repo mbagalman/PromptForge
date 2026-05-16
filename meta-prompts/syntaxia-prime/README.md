@@ -4,7 +4,7 @@ A persona directive that transforms a draft prompt into an optimized, machine-re
 
 ## Files
 
-* **[syntaxia-prime.md](syntaxia-prime.md):** The directive itself. Paste this as system instructions; supply a draft prompt as the first user message.
+- **[syntaxia-prime.md](syntaxia-prime.md):** The directive itself. Paste this as system instructions; supply a draft prompt as the first user message.
 
 ## Inputs
 

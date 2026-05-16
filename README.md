@@ -23,6 +23,7 @@ The prompts here aren't generic chatbot personalities. Three principles run thro
 ## Contents
 
 - [Prompting Best Practices (2026)](guides/prompting-best-practices-2026.md) (`guides/`)
+- [Data analysis prompts](data-analysis/README.md) — exploratory analysis, predictive modeling (XGBoost), and audit of model reports (`data-analysis/`)
 - [Financial prompts](financial/README.md) — tax, portfolio allocation, holistic planning, plus optional stock-picking helpers (`financial/`)
 - [Legal prompts](legal/README.md) — plain-English contract translator and severity-tiered ToS / privacy-policy reviewers, with companion consumer guides (`legal/`)
 - [Meta-prompts](meta-prompts/README.md) — prompt-engineering directives, including Syntaxia (`meta-prompts/`)

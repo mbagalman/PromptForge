@@ -4,11 +4,12 @@ This is a central, up-to-date index of every prompt and guide in the collection.
 
 ## Quick Navigation
 
-* [Prompting Best Practices Guide](#prompting-best-practices-2026)
-* [Financial Prompts](#financial-prompts)
-* [Research Prompts](#research-prompts)
-* [Legal Prompts](#legal-prompts)
-* [Meta-Prompts](#meta-prompts)
+- [Prompting Best Practices Guide](#prompting-best-practices-2026)
+- [Data Analysis Prompts](#data-analysis-prompts)
+- [Financial Prompts](#financial-prompts)
+- [Research Prompts](#research-prompts)
+- [Legal Prompts](#legal-prompts)
+- [Meta-Prompts](#meta-prompts)
 
 ---
 
@@ -20,6 +21,16 @@ This is a central, up-to-date index of every prompt and guide in the collection.
 | Deep Research Best Practices (2026) | [guides/deep-research-best-practices-2026.md](guides/deep-research-best-practices-2026.md) | Focused companion on prompting deep-research agents (Claude Research, Gemini Deep Research, ChatGPT Deep Research). | Brief specification, source priorities, when to use vs. avoid, platform differences |
 | Good Prompting for Beginners | [guides/good-prompting-for-beginners.md](guides/good-prompting-for-beginners.md) | Beginner-friendly habits and template for everyday chat use. | Audience/goal framing, output shape, uncertainty handling |
 | AGENTS.md / CLAUDE.md Best Practices | [guides/agents-md-best-practices-2026.md](guides/agents-md-best-practices-2026.md) | Repository-level instruction files for autonomous coding agents. | Non-inferable content, progressive disclosure, permission boundaries |
+
+## Data Analysis Prompts
+
+| Prompt Name | File | Description | Key Features | Best For |
+| --- | --- | --- | --- | --- |
+| Data Analyst | [data-analysis/data-analyst.md](data-analysis/data-analyst.md) | Autonomous exploratory analysis of an uploaded tabular file | Statistically careful, description-vs-inference discipline, no manufactured insight, charts that earn their place | Understanding what's in a dataset |
+| Predictive Modeling Engineer | [data-analysis/predictive-modeling.md](data-analysis/predictive-modeling.md) | Builds, evaluates, and delivers a tabular predictive model | XGBoost default with switch rules, split-before-engineering, leakage audit, stop-and-reaudit on suspicious metrics, joblib pipeline + MODEL_CARD.md deliverable | Building a tabular predictive model honestly |
+| Predictive Model Auditor | [data-analysis/predictive-model-auditor.md](data-analysis/predictive-model-auditor.md) | Skeptical audit of a written model report | Three-verdict scheme, cannot-run-code constraint, pairs with the modeling-engineer's output contract | Reviewing model work before sign-off |
+
+The Predictive Model Auditor is designed to read reports produced by the Predictive Modeling Engineer — the modeler's output contract maps directly onto the auditor's checklist. See [data-analysis/README.md](data-analysis/README.md) for the workflow and platform-setup specifics (notably, the auditor requires code execution to be **disabled**, while the other two require it enabled).
 
 ## Financial Prompts
 
@@ -38,6 +49,7 @@ This is a central, up-to-date index of every prompt and guide in the collection.
 | Content Digest | [research/content-digest.md](research/content-digest.md) | Structured summarization and synthesis of long-form content | Key claims, evidence, counterpoints tables | Literature review, article digestion |
 | Fact-Checker | [research/fact-checker.md](research/fact-checker.md) | Rigorous source verification and claim validation (v1.2.0) | Verifiability scoring, primary source preference, claim accumulation scan, deep-research mode support | Truth-seeking research, draft auditing |
 | Red-Team Analyst | [research/red-team-analyst.md](research/red-team-analyst.md) | Adversarial critique and risk identification | Assumption stress-testing, failure modes | Decision robustness |
+| Deep-Research Brief Specialist | [research/deep-research.md](research/deep-research.md) | Turns research questions into well-scoped briefs for deep-research agents (Claude Research, Gemini Deep Research, ChatGPT Deep Research) | Fit diagnosis, six-component brief template, analytical-posture levers, copy-ready output | Scoping work before delegating to a deep-research tool |
 
 ## Legal Prompts
 
@@ -49,8 +61,8 @@ This is a central, up-to-date index of every prompt and guide in the collection.
 
 The two reviewer prompts pair with companion reference documents in [legal/document-reviewers/](legal/document-reviewers/) that supply the framework they apply:
 
-* [legal/document-reviewers/privacy-policy-consumer-guide.md](legal/document-reviewers/privacy-policy-consumer-guide.md) — used by the Privacy Policy Reviewer
-* [legal/document-reviewers/tos-consumer-guide.md](legal/document-reviewers/tos-consumer-guide.md) — used by the ToS Reviewer
+- [legal/document-reviewers/privacy-policy-consumer-guide.md](legal/document-reviewers/privacy-policy-consumer-guide.md) — used by the Privacy Policy Reviewer
+- [legal/document-reviewers/tos-consumer-guide.md](legal/document-reviewers/tos-consumer-guide.md) — used by the ToS Reviewer
 
 Load the relevant guide as a knowledge file (Custom GPT, Claude Project) or paste it alongside the system prompt. See [legal/README.md](legal/README.md) for setup details.
 
@@ -66,8 +78,8 @@ Load the relevant guide as a knowledge file (Custom GPT, Claude Project) or past
 
 **Notes**
 
-* All prompts follow consistent YAML frontmatter and strict output structures for reliable chaining.
-* Financial prompts include strong disclaimers — they are **educational / research tools only**, not financial advice.
-* Last updated: May 16, 2026
+- All prompts follow consistent YAML frontmatter and strict output structures for reliable chaining.
+- Financial prompts include strong disclaimers — they are **educational / research tools only**, not financial advice.
+- Last updated: May 16, 2026
 
 Feel free to suggest additions or improvements via Issues or PRs!

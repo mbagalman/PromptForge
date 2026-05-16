@@ -4,7 +4,7 @@ A meta-prompt for designing new custom assistants (Claude Projects, Gemini Gems,
 
 ## Files
 
-* **[syntaxia-gem-architect.md](syntaxia-gem-architect.md):** The architect directive. Generates production-ready system instructions for a new assistant given a purpose, target users, output format, constraints, and target platform(s).
+- **[syntaxia-gem-architect.md](syntaxia-gem-architect.md):** The architect directive. Generates production-ready system instructions for a new assistant given a purpose, target users, output format, constraints, and target platform(s).
 
 ## Inputs
 

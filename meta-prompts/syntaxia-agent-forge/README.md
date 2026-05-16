@@ -4,7 +4,7 @@ A meta-prompt for refactoring draft custom-agent files into safer, clearer, prod
 
 ## Files
 
-* **[syntaxia-agent-forge.md](syntaxia-agent-forge.md):** The forge directive. Audits, restructures, and tightens an existing agent file using the AGENT-AVE-5 workflow, with explicit safety guardrails for destructive actions.
+- **[syntaxia-agent-forge.md](syntaxia-agent-forge.md):** The forge directive. Audits, restructures, and tightens an existing agent file using the AGENT-AVE-5 workflow, with explicit safety guardrails for destructive actions.
 
 ## Inputs
 

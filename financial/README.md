@@ -19,16 +19,16 @@ The five agents fall into two groups.
 
 These three agents are designed to run in sequence and produce a complete plan: a tax-aware target allocation across stocks, bonds, and cash, plus the order in which to act on each goal. Once you have the allocation percentages, a low-cost index fund is enough to implement them.
 
-* **[Tax Strategist](tax-strategist.md):** Models tax liabilities as a constrained optimization problem.
-* **[Strategic Investment Advisor](mpt-advisor.md):** Canonical quantitative portfolio role using MPT and asset-location logic.
-* **[Holistic Financial Planner](holistic-financial-planner.md):** Integrates data from the other agents into a prioritized "Financial Pyramid."
+- **[Tax Strategist](tax-strategist.md):** Models tax liabilities as a constrained optimization problem.
+- **[Strategic Investment Advisor](mpt-advisor.md):** Canonical quantitative portfolio role using MPT and asset-location logic.
+- **[Holistic Financial Planner](holistic-financial-planner.md):** Integrates data from the other agents into a prioritized "Financial Pyramid."
 
 ### Optional Stock-Picking Helpers
 
 If you'd rather fill your equity allocation with individual companies than a broad index fund, these two agents act as filters on candidate tickers. They're standalone — use either, both, or neither, and they don't depend on the core chain.
 
-* **[Compounder Analyst](compounder-analyst.md):** Focuses on high-ROIC "quality" companies with a skepticism toward dividends.
-* **[Graham & Dodd Analyst](graham-dodd-analyst.md):** A classic value investing filter based on the *Intelligent Investor* framework.
+- **[Compounder Analyst](compounder-analyst.md):** Focuses on high-ROIC "quality" companies with a skepticism toward dividends.
+- **[Graham & Dodd Analyst](graham-dodd-analyst.md):** A classic value investing filter based on the *Intelligent Investor* framework.
 
 ## Inputs
 

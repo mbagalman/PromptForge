@@ -14,16 +14,16 @@ They emphasize **specification over scaffolding**: define what you want (task, o
 
 ## Files
 
-* **[good-prompting-for-beginners.md](good-prompting-for-beginners.md):**  
+- **[good-prompting-for-beginners.md](good-prompting-for-beginners.md):**  
   A concise, beginner-friendly introduction. Covers the single most important idea ("tell the AI what you want, who it's for, and what shape the answer should take"), five high-impact habits, what has changed since 2023, common anti-patterns, and a simple template. Takes ~10 minutes to read.
 
-* **[prompting-best-practices-2026.md](prompting-best-practices-2026.md):**  
+- **[prompting-best-practices-2026.md](prompting-best-practices-2026.md):**  
   The core reference document. A comprehensive synthesis of 2026 research and vendor guidance across chat, packaged assistants, and agents. Includes general principles (specification-style prompting, reasoning budget vs. transcript, front-loading constraints, fallback policies, evaluation loops), platform-specific notes, and explicit flags for open questions/weak evidence. Start here if you build your own assistants more than you borrow prompts.
 
-* **[agents-md-best-practices-2026.md](agents-md-best-practices-2026.md):**  
+- **[agents-md-best-practices-2026.md](agents-md-best-practices-2026.md):**  
   Deep dive into repository-level instruction files (`AGENTS.md`, `CLAUDE.md`, `SKILL.md`, etc.). Covers what belongs (exact tooling/versions, verbatim commands, counterintuitive conventions, permission boundaries), what doesn't (redundant info, long prose, marketing language), progressive disclosure patterns, and empirical findings on what actually improves agent performance.
 
-* **[deep-research-best-practices-2026.md](deep-research-best-practices-2026.md):**  
+- **[deep-research-best-practices-2026.md](deep-research-best-practices-2026.md):**  
   Focused guidance for Claude Research, Gemini Deep Research, and ChatGPT Deep Research. Covers the architectural shift (prompt seeds a planner, not a model), when deep research is and isn't the right tool, a six-component brief template, how to control source quality and recency, and how the three platforms' planning surfaces diverge.
 
 ## How to Use
