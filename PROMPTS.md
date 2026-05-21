@@ -6,6 +6,7 @@ This is a central, up-to-date index of every prompt and guide in the collection.
 
 - [Prompting Best Practices Guide](#prompting-best-practices-2026)
 - [Coding Prompts](#coding-prompts)
+- [Coding Workflow Suite](#coding-workflow-suite)
 - [Data Analysis Prompts](#data-analysis-prompts)
 - [Financial Prompts](#financial-prompts)
 - [Research Prompts](#research-prompts)
@@ -29,6 +30,19 @@ This is a central, up-to-date index of every prompt and guide in the collection.
 | --- | --- | --- | --- | --- |
 | Python Hardener | [coding/python-hardener.md](coding/python-hardener.md) | Refactors raw or legacy Python into modern, cross-platform Python 3.11+ | Five-dimension audit (cross-platform / resource / typing / exception / security), pathlib-first, PEP 604 unions, credential-to-env-var replacement, five-section output contract with Change Log | Hardening legacy scripts before deployment |
 | SQL Optimization Engineer | [coding/sql-optimization-engineer.md](coding/sql-optimization-engineer.md) | Audits and refactors SQL queries for performance and maintainability across major engines | Engine-aware (Snowflake, BigQuery, Postgres, MySQL, SQL Server, Redshift), SARGability + join-cardinality + projection audit, modular CTE pattern (Import → Logical → Final), four-section output contract | Tuning a slow query or preparing SQL for code review |
+
+## Coding Workflow Suite
+
+| Prompt Name | File | Description | Key Features | Best For |
+| --- | --- | --- | --- | --- |
+| Workflow Orchestrator | [development/coding-workflow-suite/workflow-orchestrator.md](development/coding-workflow-suite/workflow-orchestrator.md) | Drives the suite end-to-end; recommended entry point | Phase 1 size-scaling (Small / Medium / Large chains), Router mode (default — names the next stage to run) and Integrated mode (produces the next artifact inline), gate enforcement, override logging | Starting a structured engineering-process workflow |
+| Business Requirements Document | [development/coding-workflow-suite/brd.md](development/coding-workflow-suite/brd.md) | Interactive five-exchange BRD elicitation | Outcome-vs-feature discipline, ≥1 measurable success criterion floor, three-role stakeholder taxonomy (decision-maker / affected / sign-off), constraint-vs-non-goal split | Establishing the business case before any product or technical work |
+| Product Requirements Document | [development/coding-workflow-suite/prd.md](development/coding-workflow-suite/prd.md) | Translates the BRD's why into a user-facing what | Personas-named-never-invented, per-requirement acceptance criteria, per-dimension non-functional discipline (none required must be explicit), out-of-scope as a required section | Specifying product behavior with measurable checks |
+| Tech Spec | [development/coding-workflow-suite/tech-spec.md](development/coding-workflow-suite/tech-spec.md) | Two-mode system design with explicit open-question discipline | Draft mode surfaces `Q-NNN` open architectural questions for ADRs; Revision mode consumes resolved ADRs and emits a Final; component decomposition by responsibility, failure-mode-first reliability targets | Producing a system design another engineer could implement against |
+| Architecture Decision Record | [development/coding-workflow-suite/adr.md](development/coding-workflow-suite/adr.md) | Single-decision ADR in canonical Nygard format | One decision per run, ≥2 options required, Type 1 / Type 2 reversibility marking, decision-prep mode for not-yet-made decisions, `Originating question-id` linkage to Tech Spec Draft | Recording an architecturally-significant decision durably |
+| Implementation Plan | [development/coding-workflow-suite/implementation-plan.md](development/coding-workflow-suite/implementation-plan.md) | Phased work breakdown with deterministic gates and agent boundaries | Per-phase deterministic approval gates, confidence-banded estimates, *Agent execution boundaries* table (`allowed without approval` / `requires approval` / `prohibited`) with verbs and surfaces, risk register, rollout plan | Phasing engineering work for execution by humans, agents, or both |
+
+The six prompts chain: BRD → PRD → Tech Spec (Draft) → ADR loop (one ADR per open question) → Tech Spec (Revision) → Implementation Plan. The `workflow-orchestrator.md` is the recommended entry point — it asks the size-scaling question on the first turn, picks the chain (Small drops BRD and Tech Spec; Medium drops BRD; Large runs the full chain), and drives the handoffs in either Router or Integrated mode. The suite ships at `experimental` status pending field use. A seventh prompt (`agents-md-generator.md`) for translating the Implementation Plan and ADRs into an AGENTS.md / CLAUDE.md / SKILL.md file is in development. See [development/coding-workflow-suite/README.md](development/coding-workflow-suite/README.md) for the workflow, the ADR loop, the input-type taxonomy, the compact worked example, and platform-setup specifics.
 
 ## Data Analysis Prompts
 
@@ -91,6 +105,6 @@ Load the relevant guide as a knowledge file (Custom GPT, Claude Project) or past
 
 - All prompts follow consistent YAML frontmatter and strict output structures for reliable chaining.
 - Financial prompts include strong disclaimers — they are **educational / research tools only**, not financial advice.
-- Last updated: May 20, 2026
+- Last updated: May 21, 2026
 
 Feel free to suggest additions or improvements via Issues or PRs!
