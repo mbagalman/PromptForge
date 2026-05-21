@@ -163,6 +163,10 @@ A small but realistic example to make the chain shape concrete. The hypothetical
 
 **A note on the two orchestrator modes.** Both modes would produce the same six artifacts. The difference is in the handoff: in **Router mode**, the orchestrator's turn between Tech Spec Draft and ADR runs would read something like *"Tech Spec Draft is done with three open questions (Q-001, Q-002, Q-003). Open a new session with `adr.md` and paste Q-001 into the first turn. Come back with the resolved ADR and we'll do the same for Q-002."* In **Integrated mode**, the orchestrator would produce ADR-001 inline in the same conversation, with a header announcing *"This artifact was produced by applying `adr.md`'s rules in Integrated mode."* The user does not switch tools, but the orchestrator carries the burden of staying in sync with `adr.md`'s contract.
 
+### Full worked example
+
+The compact example above shows the chain shape in paragraphs. The full artifact-by-artifact rendering of the same project — all nine files the suite would produce, totaling about 1,250 lines — lives in [examples/nps-tracking-tool/](examples/nps-tracking-tool/README.md). Read the [examples README](examples/nps-tracking-tool/README.md) first; it lists the reading order, illustrates a Router-mode orchestrator handoff and the same handoff in Integrated mode, and includes the AGENTS.md generator's cover note (which lives in the conversation, not in the committed AGENTS.md file itself).
+
 ## Platform setup
 
 All prompts paste into the assistant builder's instructions field. None of the six prompts requires code execution, file creation, web search, or specific knowledge files — they are pure elicitation and document-production tools operating on text inputs and producing markdown outputs.
