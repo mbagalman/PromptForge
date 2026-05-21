@@ -1,12 +1,22 @@
 # Regression scenarios — Coding Workflow Suite
 
-Minimal scenario catalog for exercising the suite's documented failure modes. The C12 P2 deliverable per [`../../../tickets/coding-workflow-suite.md`](../../../tickets/coding-workflow-suite.md) (gitignored). Three scenarios per prompt plus three chain-handoff scenarios — twenty-four total. Each scenario states the input the user would paste, the expected behavior the prompt should produce, and the named failure mode being exercised.
+Minimal scenario catalog for exercising the suite's documented failure modes. Three scenarios per prompt plus three chain-handoff scenarios — twenty-four total. Each scenario states the input the user would paste, the expected behavior the prompt should produce, and the named failure mode being exercised.
 
 These are not automated tests. They are rehearsals — load a prompt into Claude Projects, Custom GPT, or Gemini Gem, paste the input, and confirm the prompt produces the expected behavior. Failures should be triaged: either the prompt needs a fix or the scenario needs to be sharpened.
 
 **Scenario codes** use a two-letter prompt prefix plus an index: `OR` (orchestrator), `BR` (BRD), `PR` (PRD), `TS` (tech spec), `AD` (ADR), `IP` (implementation plan), `AG` (AGENTS.md generator), `CH` (chain handoff).
 
 **Status legend:** `untested` · `passing` · `failing` · `flaky`. Each scenario starts at `untested`; update inline as you run them.
+
+## Run log
+
+A cross-cutting record of which scenarios have been exercised against which prompt versions on which platforms. Add a row per run; update the per-scenario `Status:` field inline below. The run log tells you "where do we stand across the catalog"; the inline statuses tell you "which specific scenarios have been confirmed."
+
+| Date tested | Prompt(s) | Prompt version | Model / platform | Scenarios run | Pass / fail / flaky | Notes |
+|---|---|---|---|---|---|---|
+| _untested_ | _all_ | _1.0.0 (initial)_ | _—_ | _—_ | _—_ | The catalog has not yet been exercised; this row will populate as runs occur. |
+
+Convention: each run records one row. *Scenarios run* names them by code (`OR.1`, `OR.2`, …) or a range (`OR.1–3`, `CH.1–3`); for a full-catalog run, *all*. *Pass / fail / flaky* lists counts (e.g., `21 pass / 2 fail / 1 flaky`). *Notes* names which scenario codes failed or behaved unexpectedly, and links to any prompt-fix PR that addressed the failures.
 
 ---
 
@@ -164,7 +174,7 @@ These are not automated tests. They are rehearsals — load a prompt into Claude
 
 **Input:** ADR prompt opened with: "I want to record an ADR for the auth model. We're debating between session-based auth and JWT via Auth0. I haven't decided yet but want to capture the options."
 
-**Expected behavior:** ADR prompt switches to decision-prep mode. Produces an ADR with Status `proposed`, populated Context (forces in tension, constraints) and Options considered (both alternatives with their respective trade-offs), but with Decision and Consequences sections left blank with explicit *"Decision deferred — see Options considered"* placeholders. The artifact header's Status line reads `proposed`. The orchestrator's ADR-loop completion check should treat this as not-yet-resolved (per implementation note #11 in the ticket file).
+**Expected behavior:** ADR prompt switches to decision-prep mode. Produces an ADR with Status `proposed`, populated Context (forces in tension, constraints) and Options considered (both alternatives with their respective trade-offs), but with Decision and Consequences sections left blank with explicit *"Decision deferred — see Options considered"* placeholders. The artifact header's Status line reads `proposed`. The orchestrator's ADR-loop completion check should treat this as not-yet-resolved (per `tech-spec.md`'s Revision-mode detection rule that `proposed` ADRs do not satisfy the loop's completion gate).
 
 **Failure mode exercised:** decision-not-yet-made — ADR switches to decision-prep mode rather than fabricating a decision.
 
@@ -317,4 +327,4 @@ When a scenario fails (the prompt does not produce the expected behavior):
 4. **Update the prompt or the scenario**, set the scenario's status to `passing` once the fix is verified, and note the version of the prompt the fix landed in.
 5. **Flag systemic patterns** — if the same failure mode shows up across multiple prompts (e.g., guardrails being bypassed when the user is forceful), surface it in the ticket file's working scaffold for future C1 / C2 spec amendments.
 
-The scenarios in this catalog are the P2 minimal set. Expanding to four-or-more scenarios per prompt, adding adversarial inputs, and adding scenarios for the Integrated-mode orchestrator path are post-P2 maintenance work (per the C12 ticket scope) and do not require a separate ticket.
+The scenarios in this catalog are the initial minimal set. Expanding to four-or-more scenarios per prompt, adding adversarial inputs, and adding scenarios for the Integrated-mode orchestrator path are normal maintenance work; add new scenarios inline and bump the catalog's coverage as they land. No separate ticket is required.

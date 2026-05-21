@@ -1,6 +1,6 @@
 ---
-version: 1.0.0
-last_updated: 2026-05-20
+version: 1.1.0
+last_updated: 2026-05-21
 status: experimental
 target_platforms:
   - claude-projects
@@ -138,6 +138,12 @@ The artifact opens with the canonical artifact-header block — the workflow sui
 **Date:** YYYY-MM-DD
 **Upstream artifacts:** none
 
+## Assumptions and inferred inputs
+
+| Input | Source | If inferred or user-confirmed: notes |
+|---|---|---|
+| ... | supplied / inferred / user-confirmed | ... |
+
 ## Executive summary
 
 One paragraph (3–6 sentences) naming the business situation, the outcomes the work must produce, the primary stakeholder, and the headline constraint. A reader skimming only this section should understand why the work exists and what success looks like.
@@ -199,15 +205,9 @@ Problems this work explicitly does not try to solve, even though a reader might 
 Questions the BRD raised that were not resolved in the session. Each is a candidate for a follow-up with a named stakeholder before the PRD runs.
 
 - ...
-
-## Assumptions and inferred inputs
-
-| Input | Source | If inferred or user-confirmed: notes |
-|---|---|---|
-| ... | supplied / inferred / user-confirmed | ... |
 ```
 
-Per the workflow suite's input-type taxonomy, every input the BRD consumed is marked as `supplied`, `inferred`, or `user-confirmed`. `supplied` rows may be omitted to keep the table focused, but the upstream filename is named in the header's `Upstream artifacts` line — for a BRD this is normally `none`. `inferred` and `user-confirmed` rows are required and must include a one-sentence note explaining what was inferred or substituted, and why.
+The *Assumptions and inferred inputs* table sits immediately after the canonical artifact header and before the main body sections. Per the workflow suite's input-type taxonomy, every input the BRD consumed is marked as `supplied`, `inferred`, or `user-confirmed`. `supplied` rows may be omitted to keep the table focused, but the upstream filename is named in the header's `Upstream artifacts` line — for a BRD this is normally `none`. `inferred` and `user-confirmed` rows are required and must include a one-sentence note explaining what was inferred or substituted, and why.
 
 After producing the BRD, name the next step: the artifact is the input to `prd.md`. Suggest the user paste the full BRD into the PRD prompt's required-inputs section when they are ready to advance.
 

@@ -1,6 +1,6 @@
 ---
-version: 1.0.0
-last_updated: 2026-05-20
+version: 1.1.0
+last_updated: 2026-05-21
 status: experimental
 target_platforms:
   - claude-projects
@@ -135,6 +135,15 @@ The artifact opens with the canonical artifact-header block — the workflow sui
 **Date:** YYYY-MM-DD
 **Upstream artifacts:** tech-spec-[project]-final.md, adr-NNN-[slug].md, adr-NNN-[slug].md, ...
 
+## Assumptions and inferred inputs
+
+| Input | Source | If inferred or user-confirmed: notes |
+|---|---|---|
+| Tech Spec | supplied (`tech-spec-[project]-final.md`) | — |
+| Resolved ADRs | supplied | — |
+| Team capacity | user-confirmed | "User stated 3 engineers full-time, 1 part-time, for 8 weeks." |
+| ... | supplied / inferred / user-confirmed | ... |
+
 ## Plan overview
 
 - **Scope:** [what this plan covers, in execution terms]
@@ -210,18 +219,9 @@ Explicit, observable criteria that say the project is complete. Each criterion i
 Questions the plan raised that were not resolved in the session. Each is a candidate for follow-up before execution begins.
 
 - ...
-
-## Assumptions and inferred inputs
-
-| Input | Source | If inferred or user-confirmed: notes |
-|---|---|---|
-| Tech Spec | supplied (`tech-spec-[project]-final.md`) | — |
-| Resolved ADRs | supplied | — |
-| Team capacity | user-confirmed | "User stated 3 engineers full-time, 1 part-time, for 8 weeks." |
-| ... | supplied / inferred / user-confirmed | ... |
 ```
 
-Per the workflow suite's input-type taxonomy, every input the plan consumed is marked as `supplied`, `inferred`, or `user-confirmed`. `supplied` rows may be omitted to keep the table focused, but the upstream filenames are named in the header's `Upstream artifacts` line. `inferred` rows are required and must include a one-sentence note explaining what was inferred and why. `user-confirmed` rows are required when the user replaced upstream-artifact content with inline input.
+The *Assumptions and inferred inputs* table sits immediately after the canonical artifact header and before the Plan overview section. Per the workflow suite's input-type taxonomy, every input the plan consumed is marked as `supplied`, `inferred`, or `user-confirmed`. `supplied` rows may be omitted to keep the table focused; the upstream filenames are named in the header's `Upstream artifacts` line. `inferred` rows are required and must include a one-sentence note explaining what was inferred and why. `user-confirmed` rows are required when the user replaced upstream-artifact content with inline input.
 
 After producing the plan, name the next step: the plan's *Agent execution boundaries* table is the input to `agents-md-generator.md` if the user wants an agent file. Suggest the user run that prompt next, or close the chain at the plan if no autonomous-agent execution is planned.
 

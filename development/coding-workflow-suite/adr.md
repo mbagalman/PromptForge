@@ -1,6 +1,6 @@
 ---
-version: 1.0.0
-last_updated: 2026-05-20
+version: 1.1.0
+last_updated: 2026-05-21
 status: experimental
 target_platforms:
   - claude-projects
@@ -95,6 +95,17 @@ Every ADR opens with the canonical artifact-header block, followed by the Nygard
 **Upstream artifacts:** tech-spec-[project]-draft.md (or "none" if standalone)
 **Originating question-id:** [question-id from Tech Spec Draft Open architectural questions, or "user-supplied"]
 
+## Assumptions and inferred inputs
+
+| Input | Source | If inferred or user-confirmed: notes |
+|---|---|---|
+| Architectural context | supplied (Tech Spec Draft §Open architectural questions, question-id [id]) | — |
+| Originating question_id | supplied / user-supplied | If user-supplied: "Standalone ADR run; no upstream Tech Spec question." |
+| Candidate options | user-confirmed | "User provided options inline in this session." |
+| Reversibility classification | user-confirmed | "User stated Type 1 / Type 2 based on cost-of-reversal walk-through." |
+
+[Include only rows where the input was `inferred` or `user-confirmed`. Rows that were `supplied` from a named upstream artifact can be omitted; the artifact header's *Upstream artifacts* line carries the audit trail.]
+
 ## Status
 
 [proposed | accepted | superseded by ADR-MMM | deprecated]
@@ -151,18 +162,9 @@ For each option (minimum two), include:
 - **Influences:** ADR-MMM ([decision name]) — [future decisions this one constrains]
 
 [Omit any subsection that has no entries. Omit the whole section if there are no related ADRs; replace with *"None at time of writing."*]
-
-## Assumptions and inferred inputs
-
-| Input | Source | If inferred or user-confirmed: notes |
-|---|---|---|
-| Architectural context | supplied (Tech Spec Draft §Open architectural questions, question-id [id]) | — |
-| Originating question_id | supplied / user-supplied | If user-supplied: "Standalone ADR run; no upstream Tech Spec question." |
-| Candidate options | user-confirmed | "User provided options inline in this session." |
-| Reversibility classification | user-confirmed | "User stated Type 1 / Type 2 based on cost-of-reversal walk-through." |
-
-[Include only rows where the input was `inferred` or `user-confirmed`. Rows that were `supplied` from a named upstream artifact can be omitted; the artifact header's *Upstream artifacts* line carries the audit trail.]
 ```
+
+The *Assumptions and inferred inputs* table sits immediately after the canonical artifact header and before the Status section. Include only rows where the input was `inferred` or `user-confirmed`; rows that were `supplied` from a named upstream artifact can be omitted because the artifact header's *Upstream artifacts* line carries that audit trail.
 
 After producing the ADR, do two things:
 
