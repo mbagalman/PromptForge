@@ -2,7 +2,7 @@
 
 An end-to-end prompt sequence that forces disciplined engineering process *before* any code is written: BRD → PRD → Tech Spec → ADR → Implementation Plan, driven by a workflow orchestrator, with an optional AGENTS.md / CLAUDE.md / SKILL.md generator that translates the planning artifacts into a runtime instruction file for an autonomous coding agent. Each stage produces a reviewable markdown artifact that is also the canonical input to the next stage — the chain works because every handoff is a parseable document, not a verbal recap.
 
-The suite is distinct from the existing `coding/` directory, which ships per-language code-quality tools (`python-hardener.md`, `sql-optimization-engineer.md`) that operate during or after implementation. It is also distinct from `guides/agents-md-best-practices-2026.md`, which is reference material for writing AGENTS.md files; the forthcoming `agents-md-generator.md` (C9) is the prompt that applies that guidance to a project's Implementation Plan and ADRs.
+The suite is distinct from the existing `coding/` directory, which ships per-language code-quality tools (`python-hardener.md`, `sql-optimization-engineer.md`) that operate during or after implementation. It is also distinct from `guides/agents-md-best-practices-2026.md`, which is reference material for writing AGENTS.md files; `agents-md-generator.md` is the prompt that applies that guidance to a project's Implementation Plan and ADRs.
 
 ## ⚠️ Status: experimental
 
@@ -12,7 +12,7 @@ Treat outputs as scaffolding to interrogate, not specifications to ship. The cha
 
 ## Files
 
-The suite ships with six prompts:
+The suite ships with seven prompts:
 
 - **[workflow-orchestrator.md](workflow-orchestrator.md)** — the entry point. Asks the size-scaling question, recommends a chain, and drives the workflow in either Router mode (tells the user which stage prompt to run next) or Integrated mode (produces the next stage's artifact inline by applying that stage's rules).
 - **[brd.md](brd.md)** — Business Requirements Document elicitation. Captures the business case (situation, stakeholders, outcomes, success criteria, constraints, non-goals) before any product or technical work begins.
@@ -20,8 +20,7 @@ The suite ships with six prompts:
 - **[tech-spec.md](tech-spec.md)** — Technical Specifications with Draft and Revision modes. Draft mode produces a first-pass system design and surfaces decisions that warrant ADRs; Revision mode consumes the Draft plus resolved ADRs and produces a Final Tech Spec.
 - **[adr.md](adr.md)** — Architecture Decision Record in the canonical Nygard format (Title / Status / Context / Decision / Consequences). One decision per run; the `question_id` tag links each ADR back to the Tech Spec Draft open question that triggered it.
 - **[implementation-plan.md](implementation-plan.md)** — Phased work breakdown with deterministic approval gates between phases, confidence-banded estimates, a risk register, a rollout plan, and an *Agent execution boundaries* table classifying actions as `allowed without approval` / `requires approval` / `prohibited`.
-
-The agent-instruction-file generator (`agents-md-generator.md`) is in development and will land in a forthcoming update. It will consume the Implementation Plan and resolved ADRs to produce an AGENTS.md, CLAUDE.md, or SKILL.md file.
+- **[agents-md-generator.md](agents-md-generator.md)** — Optional final stage. Translates the Implementation Plan's *Agent execution boundaries* and the resolved ADRs into an AGENTS.md / CLAUDE.md / SKILL.md instruction file for the user's project repo. Enforces the ~200-line ceiling, trust-boundary discipline, and the no-duplication-with-README rule from `guides/agents-md-best-practices-2026.md`.
 
 ## Inputs
 
@@ -33,6 +32,7 @@ Each prompt declares its required inputs in its YAML frontmatter (`required_inpu
 - **`tech-spec.md`** — the PRD artifact (or equivalent product context inline), known technical constraints (existing stack, team capabilities, deployment environment), non-functional targets. In Revision mode, additionally the resolved ADRs.
 - **`adr.md`** — the decision to be recorded (named explicitly), the architectural context (typically one open question from a Tech Spec Draft), and candidate options. Optionally the originating `question_id`.
 - **`implementation-plan.md`** — the Tech Spec (Final) artifact, the relevant resolved ADRs, team capacity or timeline, and a working definition of done.
+- **`agents-md-generator.md`** — the Implementation Plan artifact (with the *Agent execution boundaries* table populated), the resolved ADRs, optionally the Tech Spec (Final) for exact tooling and versioning, the target agent-file format (`AGENTS.md` / `CLAUDE.md` / `SKILL.md`), and any project metadata not in upstream artifacts (e.g., exact CI commands).
 
 Every stage marks every input as `supplied` (came from an upstream artifact), `inferred` (filled in because upstream was missing or partial), or `user-confirmed` (provided inline by the user, replacing upstream). The marking is surfaced in each produced artifact's *Assumptions and inferred inputs* section. This is the chain's audit discipline — it makes mid-chain runs and skipped stages legible rather than silent.
 
@@ -58,7 +58,7 @@ The orchestrator's first turn asks about project size and recommends a chain. Th
 | **Medium** | A 2–3 month team initiative, well-bounded scope, modest architectural novelty | `prd.md` → `tech-spec.md` (Draft, possibly Final via ADR loop) → `implementation-plan.md` |
 | **Large** | A 6+ month platform initiative, multiple stakeholders, significant architectural novelty | `brd.md` → `prd.md` → `tech-spec.md` (Draft) → `adr.md` loop (if open questions exist) → `tech-spec.md` (Revision) → `implementation-plan.md` |
 
-Each chain may end with the optional AGENTS.md generation stage when the agent-instruction generator ships. The orchestrator complies with user overrides in either direction — "Small but I want a BRD anyway" or "Large but skip the BRD because we already have one" — and logs the override in the next downstream stage's Assumptions table.
+Each chain may end with the optional AGENTS.md generation stage (`agents-md-generator.md`). The orchestrator complies with user overrides in either direction — "Small but I want a BRD anyway" or "Large but skip the BRD because we already have one" — and logs the override in the next downstream stage's Assumptions table.
 
 ### The ADR loop
 
@@ -139,7 +139,7 @@ The taxonomy is what allows mid-chain and standalone runs without sacrificing th
    └─── implementation-plan.md
                   │
                   ▼
-           (optional) agents-md-generator.md  [forthcoming]
+           (optional) agents-md-generator.md
                   │
                   ▼
               COMPLETE
@@ -175,6 +175,7 @@ All prompts paste into the assistant builder's instructions field. None of the s
 | [tech-spec.md](tech-spec.md) | Not needed | Not needed | Off | None |
 | [adr.md](adr.md) | Not needed | Not needed | Off | None |
 | [implementation-plan.md](implementation-plan.md) | Not needed | Not needed | Off | None |
+| [agents-md-generator.md](agents-md-generator.md) | Not needed | Not needed | Off | Recommended — `guides/agents-md-best-practices-2026.md` should be in project knowledge so the generator can cite its short-name principles in the cover note |
 
 **Claude Projects:** leave Code Execution and File Creation off for all six prompts. For the orchestrator in Integrated mode, optionally upload the other five stage prompts to project knowledge — Claude pulls from project knowledge ambiently, which reduces the drift risk between the orchestrator's encoding of each stage and the stage prompt itself.
 
@@ -190,6 +191,7 @@ All prompts paste into the assistant builder's instructions field. None of the s
 - **Tech Spec:** "I have a PRD for [project] — let's spec the system." / "Help me draft the technical spec for [system]." / "I have a Tech Spec Draft and three resolved ADRs — let's do the Revision pass."
 - **ADR:** "Help me record an ADR for [decision]." / "I have an open architectural question from a Tech Spec Draft — let's resolve it." / "I'm still exploring options on [decision] — produce a decision-prep ADR."
 - **Implementation Plan:** "Build the implementation plan for [project] — here's the Tech Spec and the ADRs." / "Help me phase this work with proper approval gates." / "I need the Agent execution boundaries table populated for [project]."
+- **AGENTS.md Generator:** "Generate an AGENTS.md from this Implementation Plan and these ADRs." / "Produce a CLAUDE.md for [project] — target ≤200 lines." / "Translate this Implementation Plan's Agent execution boundaries into a SKILL.md."
 
 ## Maintenance notes
 
@@ -233,9 +235,16 @@ Guidance for anyone editing the prompts. Each prompt has load-bearing structure 
 ### Implementation Plan
 
 - **Most likely to drift:** the *Every gate criterion is deterministic* rule, the *No bare estimates* (confidence-bands-required) rule, and the *Agent execution boundaries is required* rule. The first erodes under "looks good"-style gates; the second under point-estimate pressure; the third under "we're not using agents on this project" pressure (which misses that the section forces the team to make implicit autonomy assumptions explicit even when no agent is planned).
-- **Coupled sections:** the *Agent execution boundaries* table is what the forthcoming `agents-md-generator.md` consumes verbatim — if the table's three-column shape (Action class / Examples / Rationale) changes, the generator must be re-validated. The plan's *Work breakdown* and *Risk register* are coupled to the Tech Spec's *Component breakdown*, *Failure modes*, and *Security considerations*; if the Tech Spec changes the section names, the inheritance must be updated. The plan supports the C1 override path where unresolved architectural questions from the Tech Spec are carried as Risk register entries.
+- **Coupled sections:** the *Agent execution boundaries* table is what `agents-md-generator.md` consumes verbatim — if the table's three-column shape (Action class / Examples / Rationale) changes, the generator must be re-validated. The plan's *Work breakdown* and *Risk register* are coupled to the Tech Spec's *Component breakdown*, *Failure modes*, and *Security considerations*; if the Tech Spec changes the section names, the inheritance must be updated. The plan supports the C1 override path where unresolved architectural questions from the Tech Spec are carried as Risk register entries.
 - **Regression tests:** phase without an approval gate (verify refusal); phase with a non-deterministic gate (verify push for objective form); bare point estimate (verify push for confidence band); missing-ADR mode (verify `inferred` marking + risk-register entry); *Agent execution boundaries* section omitted (verify refusal); vague boundary entry like "can make code changes" (verify push for verbs and surfaces).
 - **Do not flatten:** the five-exchange flow, the three-class *Agent execution boundaries* table, the deterministic-gate discipline, the confidence-banded estimate discipline, or the Tech-Spec-and-ADRs-are-authoritative rule. The plan is the contract between the design upstream and the execution downstream; sloppiness here propagates into both the agent's runtime instructions and the team's execution velocity.
+
+### AGENTS.md Generator
+
+- **Most likely to drift:** the *~200-line ceiling* rule, the *No invented permission boundaries* rule, and the *No duplication of the project's README* rule. The first erodes when users want everything-in-one-file; the second when the Implementation Plan's *Agent execution boundaries* table is vague or missing and the generator is tempted to "fill in reasonable defaults"; the third when generation is run against a project whose README already covers tooling and commands. Reinforce inside *Constraints* and the pre-deploy checklist.
+- **Coupled sections:** the generator's *Permission boundaries* output is coupled to `implementation-plan.md`'s *Agent execution boundaries* table — if the three-class table shape changes in the plan, the generator must be re-validated. The generator's *Counterintuitive conventions* section is coupled to `adr.md`'s Consequences and Decision sections — if the ADR format changes, the generator's extraction logic must match. The generator's authoritative reference is `guides/agents-md-best-practices-2026.md` — if the guide's four content categories or pre-deploy checklist change, the generator must be re-validated against the new version.
+- **Regression tests:** Implementation Plan that named no permission boundaries (verify refusal and route back to `implementation-plan.md`); inflation attempt — content that would push the file past 200 lines (verify push to `skills/` or `references/` with explicit suggested files); README-duplication attempt — project has a README that already covers tooling (verify the prompt asks which is authoritative); conflicting upstream artifacts — Tech Spec says one tooling version, Implementation Plan implies another (verify the prompt surfaces the conflict rather than silently picking); secrets in upstream (verify refusal); target-format ambiguity (verify the prompt asks AGENTS.md vs. CLAUDE.md vs. SKILL.md before producing); vague boundary entry that slipped past the Implementation Plan's guardrails (verify the generator catches it).
+- **Do not flatten:** the two-part Output contract (Cover note + fenced generated file), the eight-item pre-deploy checklist, the four-content-categories framework from the guide, the trust-boundaries discipline (trusted vs. untrusted inputs), or the no-frontmatter-inside-the-generated-file rule. The generated file follows AGENTS.md ecosystem conventions, not the suite's internal artifact conventions; conflating the two undermines both.
 
 ## License
 

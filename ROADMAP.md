@@ -2,7 +2,7 @@
 
 This document outlines the planned enhancements and new additions to **PromptForge**. It serves as a public, living roadmap to keep the collection focused, useful, and growing in high-value directions.
 
-Last updated: May 20, 2026
+Last updated: May 21, 2026
 Status: Open for feedback
 
 ## Philosophy
@@ -24,18 +24,9 @@ Items below were on this roadmap or in close adjacency and shipped over the past
 
 - **Beginner-prompting guide and AGENTS.md guide.** [`guides/good-prompting-for-beginners.md`](guides/good-prompting-for-beginners.md) and [`guides/agents-md-best-practices-2026.md`](guides/agents-md-best-practices-2026.md) shipped alongside the deep-research guide, expanding `guides/` from a single document to a four-guide set covering beginner chat through autonomous agent instruction files.
 
+- **Structured Coding Workflow Suite.** A new [`development/`](development/) top-level directory shipped with the [`development/coding-workflow-suite/`](development/coding-workflow-suite/README.md) folder containing seven prompts: a workflow orchestrator, five artifact-producing stages (BRD, PRD, Tech Spec with Draft/Revision modes, ADR, Implementation Plan), and an optional AGENTS.md / CLAUDE.md / SKILL.md generator. The suite encodes a state machine with explicit approval gates owned by the orchestrator, an ADR loop between Tech Spec Draft and Revision (one ADR per `Q-NNN`-tagged open architectural question), a suite-wide input-type taxonomy (`supplied` / `inferred` / `user-confirmed`) that makes mid-chain and standalone runs auditable, and Router (default) / Integrated orchestrator modes. Ships at `experimental` status — the first folder in the repo to do so; promotion to `stable` is gated on field use. `development/` is also the home for future engineering-process prompts (code-review prompts that don't fit narrow `coding/`, retrospectives, etc.); distinct from `coding/`, which remains for per-language code-quality tools.
+
 ## Near-Term Priorities (Q2–Q3 2026)
-
-- [ ] **Structured Coding Workflow Suite**
-  End-to-end prompt sequence that forces disciplined process before any code is written:
-  - Business Requirements Document (BRD)
-  - Product Requirements Document (PRD)
-  - Technical Specifications
-  - Architecture Decision Record (ADR)
-  - Implementation plan with approval gates.
-
-  Includes orchestrator meta-prompt and agent-friendly variants. Distinct from [`guides/agents-md-best-practices-2026.md`](guides/agents-md-best-practices-2026.md), which is reference material for writing AGENTS.md / CLAUDE.md files — the suite would be the workflow prompts an engineer runs *before* an agent starts coding.
-  Expected location: `development/coding-workflow-suite/` — this introduces a new top-level `development/` directory intended as the home for engineering-process prompts (workflow suites, code-review prompts that don't fit narrow `coding/`, retrospectives, and similar). Distinct from `coding/`, which is for per-language code-quality tools.
 
 - [ ] **Reliable Medical Information Guide + Prompts**
   Responsible prompting framework for health-related queries with heavy emphasis on primary sources (PubMed, Cochrane, etc.), red-flag detection, uncertainty communication, and crystal-clear disclaimers.
