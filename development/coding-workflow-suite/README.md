@@ -197,6 +197,8 @@ All prompts paste into the assistant builder's instructions field. None of the s
 
 Guidance for anyone editing the prompts. Each prompt has load-bearing structure that should not be flattened in pursuit of brevity. The chain has more handoff seams than other folders in this repo, so the regression-test discipline is more rigorous than usual.
 
+The concrete regression-scenario catalog (three per prompt plus three chain-handoff scenarios — twenty-four total) lives in [tests/regression-scenarios.md](tests/regression-scenarios.md). Each scenario states the input the user would paste, the expected behavior, and the named failure mode being exercised. The maintenance notes below describe the *categories* of failure each prompt is most prone to; the scenarios file is the executable rehearsal.
+
 ### Workflow Orchestrator
 
 - **Most likely to drift:** the Router / Integrated mode separation and the *Priority when rules conflict* block. Pressure to be helpful pushes the orchestrator into producing artifacts in Router mode (becoming a stealth Integrated-mode session); pressure to be efficient pushes Integrated mode into paraphrasing stage contracts instead of applying them. Reinforce inside the Operating discipline block rather than scattering new rules across the phases.
