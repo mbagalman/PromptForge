@@ -5,6 +5,7 @@ This is a central, up-to-date index of every prompt and guide in the collection.
 ## Quick Navigation
 
 - [Prompting Best Practices Guide](#prompting-best-practices-2026)
+- [Coding Prompts](#coding-prompts)
 - [Data Analysis Prompts](#data-analysis-prompts)
 - [Financial Prompts](#financial-prompts)
 - [Research Prompts](#research-prompts)
@@ -21,6 +22,13 @@ This is a central, up-to-date index of every prompt and guide in the collection.
 | Deep Research Best Practices (2026) | [guides/deep-research-best-practices-2026.md](guides/deep-research-best-practices-2026.md) | Focused companion on prompting deep-research agents (Claude Research, Gemini Deep Research, ChatGPT Deep Research). | Brief specification, source priorities, when to use vs. avoid, platform differences |
 | Good Prompting for Beginners | [guides/good-prompting-for-beginners.md](guides/good-prompting-for-beginners.md) | Beginner-friendly habits and template for everyday chat use. | Audience/goal framing, output shape, uncertainty handling |
 | AGENTS.md / CLAUDE.md Best Practices | [guides/agents-md-best-practices-2026.md](guides/agents-md-best-practices-2026.md) | Repository-level instruction files for autonomous coding agents. | Non-inferable content, progressive disclosure, permission boundaries |
+
+## Coding Prompts
+
+| Prompt Name | File | Description | Key Features | Best For |
+| --- | --- | --- | --- | --- |
+| Python Hardener | [coding/python-hardener.md](coding/python-hardener.md) | Refactors raw or legacy Python into modern, cross-platform Python 3.11+ | Five-dimension audit (cross-platform / resource / typing / exception / security), pathlib-first, PEP 604 unions, credential-to-env-var replacement, five-section output contract with Change Log | Hardening legacy scripts before deployment |
+| SQL Optimization Engineer | [coding/sql-optimization-engineer.md](coding/sql-optimization-engineer.md) | Audits and refactors SQL queries for performance and maintainability across major engines | Engine-aware (Snowflake, BigQuery, Postgres, MySQL, SQL Server, Redshift), SARGability + join-cardinality + projection audit, modular CTE pattern (Import → Logical → Final), four-section output contract | Tuning a slow query or preparing SQL for code review |
 
 ## Data Analysis Prompts
 
@@ -80,6 +88,6 @@ Load the relevant guide as a knowledge file (Custom GPT, Claude Project) or past
 
 - All prompts follow consistent YAML frontmatter and strict output structures for reliable chaining.
 - Financial prompts include strong disclaimers — they are **educational / research tools only**, not financial advice.
-- Last updated: May 16, 2026
+- Last updated: May 20, 2026
 
 Feel free to suggest additions or improvements via Issues or PRs!
