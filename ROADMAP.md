@@ -2,7 +2,7 @@
 
 This document outlines the planned enhancements and new additions to **PromptForge**. It serves as a public, living roadmap to keep the collection focused, useful, and growing in high-value directions.
 
-Last updated: May 16, 2026
+Last updated: May 20, 2026
 Status: Open for feedback
 
 ## Philosophy
@@ -35,7 +35,7 @@ Items below were on this roadmap or in close adjacency and shipped over the past
   - Implementation plan with approval gates.
 
   Includes orchestrator meta-prompt and agent-friendly variants. Distinct from [`guides/agents-md-best-practices-2026.md`](guides/agents-md-best-practices-2026.md), which is reference material for writing AGENTS.md / CLAUDE.md files — the suite would be the workflow prompts an engineer runs *before* an agent starts coding.
-  Expected location: `development/coding-workflow-suite/`
+  Expected location: `development/coding-workflow-suite/` — this introduces a new top-level `development/` directory intended as the home for engineering-process prompts (workflow suites, code-review prompts that don't fit narrow `coding/`, retrospectives, and similar). Distinct from `coding/`, which is for per-language code-quality tools.
 
 - [ ] **Reliable Medical Information Guide + Prompts**
   Responsible prompting framework for health-related queries with heavy emphasis on primary sources (PubMed, Cochrane, etc.), red-flag detection, uncertainty communication, and crystal-clear disclaimers.
