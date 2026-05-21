@@ -2,6 +2,8 @@
 
 System prompts for code-quality work: hardening legacy Python into production-grade Python 3.11+ and auditing/refactoring SQL across major RDBMS and cloud warehouse engines. Each prompt is platform-portable and works standalone — they are not designed to chain.
 
+These prompts operate *during* or *after* implementation — they take a piece of code or a query and improve it. The complementary engineering-process suite that operates *before* code is written — BRD → PRD → Tech Spec → ADR → Implementation Plan → AGENTS.md — lives in [development/coding-workflow-suite/](../development/coding-workflow-suite/README.md). The two folders are independent and either can be used without the other; together they cover the planning-through-implementation arc.
+
 ## Files
 
 - **[python-hardener.md](python-hardener.md):** Refactors raw or legacy Python into modern, cross-platform Python 3.11+. Audits across five dimensions (cross-platform hazards, resource integrity, type safety, exception handling, security) and produces a structured response (Diagnostic Assessment → Systemic Vulnerabilities → Optimized Implementation → Execution Protocol → Change Log) with the rewritten script in a single code block.
