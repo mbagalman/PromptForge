@@ -7,6 +7,7 @@ This is a central, up-to-date index of every prompt and guide in the collection.
 - [Prompting Best Practices Guide](#prompting-best-practices-2026)
 - [Coding Prompts](#coding-prompts)
 - [Coding Workflow Suite](#coding-workflow-suite)
+- [Corporate Prompts](#corporate-prompts)
 - [Data Analysis Prompts](#data-analysis-prompts)
 - [Financial Prompts](#financial-prompts)
 - [Research Prompts](#research-prompts)
@@ -44,6 +45,18 @@ This is a central, up-to-date index of every prompt and guide in the collection.
 | AGENTS.md Generator | [development/coding-workflow-suite/agents-md-generator.md](development/coding-workflow-suite/agents-md-generator.md) | Optional final stage; translates the Implementation Plan's *Agent execution boundaries* and resolved ADRs into an AGENTS.md / CLAUDE.md / SKILL.md instruction file for the user's project repo | Four-content-categories framework (exact tooling/versioning, executable commands, counterintuitive conventions, permission boundaries), ~200-line ceiling with push to `skills/` or `references/`, eight-item pre-deploy checklist, trust-boundaries discipline, no-README-duplication rule, two-part output (cover note + fenced agent file) | Producing an audit-trail-bearing agent instruction file from the suite's planning artifacts |
 
 The seven prompts chain: BRD → PRD → Tech Spec (Draft) → ADR loop (one ADR per open question) → Tech Spec (Revision) → Implementation Plan → (optional) AGENTS.md Generator. The `workflow-orchestrator.md` is the recommended entry point — it asks the size-scaling question on the first turn, picks the chain (Small drops BRD and Tech Spec; Medium drops BRD; Large runs the full chain), and drives the handoffs in either Router or Integrated mode. The optional AGENTS.md generation stage runs at the end of any size when the user wants a runtime instruction file for an autonomous coding agent. The suite ships at `experimental` status pending field use. See [development/coding-workflow-suite/README.md](development/coding-workflow-suite/README.md) for the workflow, the ADR loop, the input-type taxonomy, the compact worked example, and platform-setup specifics.
+
+## Corporate Prompts
+
+| Prompt Name | File | Description | Key Features | Best For |
+| --- | --- | --- | --- | --- |
+| Chief of Staff | [corporate/chief-of-staff.md](corporate/chief-of-staff.md) | Daily/weekly operating-cadence partner for an individual operator (founder, executive, manager, independent professional) | 50/30/20 time-budget drift surfacing, Sprint vs. Sustainable phase logic, Head/Heart/Hand blocker diagnostic, Decision Log with revisit triggers, Robustness/Optionality/Probability filters, five-section daily brief under a 350-word ceiling, three-action ceiling on The Focus | Building a daily focus brief that reality-checks estimates and logs significant decisions |
+| Presentation Deck Consultant | [corporate/presentation-deck-consultant.md](corporate/presentation-deck-consultant.md) | Structures board-ready strategy decks for senior decision-makers | Pyramid Principle (answer-first), MECE-audited groupings, Situation/Complication/Resolution synthesis, Action-Title-not-topic-label rule, Ghost Deck (6–12 slides) with horizontal-logic MECE check, slide-by-slide vertical-logic composition, explicit `[INSERT: …]` placeholders for missing evidence, industry-agnostic | Structuring a board, executive-committee, or senior-leadership strategy deck |
+| Project Planner | [corporate/project-planner.md](corporate/project-planner.md) | Turns vague project ideas into structured execution plans | Work Breakdown Structure, Three-Point/PERT estimation, T-shirt sizing in the 2–8h Goldilocks zone, named Critical Path, 20–30% contingency buffer defended explicitly as risk-absorption capacity, observable Definition of Done, fallback for unrealistic timelines and exploratory work | Phasing a project so another planner could pick it up and run with it |
+| Project Prioritizer | [corporate/project-prioritizer.md](corporate/project-prioritizer.md) | Cuts workload noise using the PICK matrix (Payoff × Effort) | Refuse-to-classify-against-undefined-axes discipline, four-quadrant taxonomy (Implement / Challenge / Possible / Kill), 1–2-Challenge active-resourcing ceiling, decisive Kill list with drop / delegate / defer-with-kill-trigger recommendations, capacity-overload surfacing | Triaging a backlog into what to do, what to defer, and what to drop |
+| Status Report Architect | [corporate/status-report-architect.md](corporate/status-report-architect.md) | Distills raw activity into a stakeholder-ready RAG status report | Outcomes-not-activities translation, mitigation-first for Red, quantified variance (no vague "behind schedule"), per-dimension RAG breakdown, six-section structure (Executive Summary → Key Outcomes → Planned Outcomes → RAG Breakdown → Risks and Blockers → Milestone Tracking), fallback when no outcomes landed in a period | Producing an executive- or internal-team-ready status report from raw activity notes |
+
+The five prompts are independent — each works standalone, and there is no required chain. They share a common context (running a function, a team, or a small organization) and a common platform shape (no code execution, no file creation, no knowledge files required). A natural informal pairing is *Project Planner → Status Report Architect* for the same project: the planner produces the milestone schedule and risk register; the status report architect consumes activity notes against that plan and produces the recurring update. The Project Prioritizer sits upstream of either as a backlog-triage tool. The Chief of Staff and Presentation Deck Consultant are independent advisory tools used as the work arises. The collection ships at `experimental` status pending field use. See [corporate/README.md](corporate/README.md) for setup specifics and per-prompt maintenance notes.
 
 ## Data Analysis Prompts
 
@@ -106,6 +119,6 @@ Load the relevant guide as a knowledge file (Custom GPT, Claude Project) or past
 
 - All prompts follow consistent YAML frontmatter and strict output structures for reliable chaining.
 - Financial prompts include strong disclaimers — they are **educational / research tools only**, not financial advice.
-- Last updated: May 21, 2026
+- Last updated: May 23, 2026
 
 Feel free to suggest additions or improvements via Issues or PRs!

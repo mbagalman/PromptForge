@@ -25,6 +25,7 @@ The prompts here aren't generic chatbot personalities. Three principles run thro
 - [Prompting Best Practices (2026)](guides/prompting-best-practices-2026.md) (`guides/`)
 - [Coding prompts](coding/README.md) — Python hardening and SQL optimization (`coding/`)
 - [Coding workflow suite](development/coding-workflow-suite/README.md) — BRD → PRD → Tech Spec → ADR → Implementation Plan, with a workflow orchestrator and an optional AGENTS.md generator (`development/`)
+- [Corporate prompts](corporate/README.md) — chief of staff, board-ready strategy decks, project planning, PICK-matrix prioritization, and executive-ready status reports (`corporate/`)
 - [Data analysis prompts](data-analysis/README.md) — KPI design (DuPont-style decomposition), exploratory analysis, predictive modeling (XGBoost), audit of model reports, executive translation, and dashboard design (`data-analysis/`)
 - [Financial prompts](financial/README.md) — tax, portfolio allocation, holistic planning, plus optional stock-picking helpers (`financial/`)
 - [Legal prompts](legal/README.md) — plain-English contract translator and severity-tiered ToS / privacy-policy reviewers, with companion consumer guides (`legal/`)
